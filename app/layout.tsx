@@ -4,20 +4,30 @@ import { PhoneCall } from "lucide-react"
 import { ThemeProvider } from "@/components/theme-provider"
 import Image from "next/image"
 import "./globals.css"
+import { ReactNode } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "R&M Plumbing & Heating | Professional Plumbing & Heating Services",
   description: "Licensed, insured, and trusted plumbers serving New Jersey with 24/7 emergency service.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           {children}
           <footer className="bg-gray-900 text-gray-300">
             <div className="container py-12">
