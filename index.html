@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&amp;M Plumbing &amp; Heating</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+        .nav-bar > ul {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-bar > ul > li {
+            position: relative;
+        }
+        .nav-bar a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0.5em 0.8em;
+            display: block;
+        }
+        .dropdown-toggle::after {
+            content: " ▼";
+            font-size: 0.7em;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 140px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .dropdown-menu li {
+            width: 100%;
+        }
+        .dropdown-menu a {
+            padding: 0.6em 1em;
+            color: #1a355e;
+            white-space: nowrap;
+        }
+        .nav-bar li:hover > .dropdown-menu,
+        .nav-bar li:focus-within > .dropdown-menu {
+            display: block;
+        }
+        /* Responsive: collapse to hamburger on small screens */
+        @media (max-width: 700px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .nav-bar > ul {
+                flex-direction: column;
+                gap: 0;
+                background: #e6f3fb;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: auto;
+                min-width: 180px;
+                display: none;
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+            .nav-bar.open > ul {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                margin-right: 0.5em;
+                cursor: pointer;
+                color: #1a355e;
+            }
+        }
+        @media (min-width: 701px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        /* Logo styling */
+        .logo img {
+            display: block;
+            max-height: 56px;
+            width: auto;
+        }
+        /* Reduce hero image height */
+        .hero-section {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .hero-image {
+            display: block;
+            width: 100vw;
+            max-width: 100%;
+            height: 260px;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 700px) {
+            .hero-image {
+                height: 140px;
+            }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: -4px;
+        }
+        @media (max-width: 768px) {
+            .hero-section,
+            .services-section,
+            .testimonials-section {
+                margin-bottom: 48px;
+                padding: 48px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-section,
+            .services-section,
+            .testimonials-section {
+                margin-bottom: 32px;
+                padding: 32px 16px;
+            }
+        }
+    </style>
+    <script>
+        // Hamburger menu toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            var navToggle = document.getElementById('nav-toggle');
+            var navBar = document.querySelector('.nav-bar');
+            if (navToggle && navBar) {
+                navToggle.addEventListener('click', function() {
+                    navBar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" />
+            </div>
+            <nav class="nav-bar" aria-label="Main navigation">
+                <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+                <ul>
+                    <li><a href="#contact">Contact</a></li>
+                    <li tabindex="0">
+                        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" aria-label="submenu">
+                            <li><a href="#">Plumbing</a></li>
+                            <li><a href="#">Heating</a></li>
+                            <li><a href="#">Water Heaters</a></li>
+                            <li><a href="#">Emergency Repair</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-phone">
+            <a href="tel:2015222834">201-522-2834</a>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section with Overlaid Bubble -->
+        <section class="hero-section">
+            <div class="hero-banner">
+                <div class="hero-overlay"></div>
+                <div class="hero-bubble">
+                    <h1>Welcome to R&amp;M Plumbing &amp; Heating</h1>
+                    <p class="hero-tagline">Your trusted local experts for all plumbing and heating needs.</p>
+                    <div class="hero-phone-cta">
+                        <p class="call-now-text">Call Now!</p>
+                        <a href="tel:+1-201-522-2834" class="phone-number">201-522-2834</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3>Repairs & Maintenance</h3>
+                    <p>Fixing leaky faucets, clogged drains, running toilets, and other common plumbing issues.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                    </div>
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Complete bathroom renovations, fixture installations, and upgrades to enhance your space.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Water Heater Services</h3>
+                    <p>Installation, repair, and maintenance of traditional and tankless water heaters.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1"/>
+                            <path d="M9 7H8a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"/>
+                            <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+                            <path d="M9 17v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2"/>
+                        </svg>
+                    </div>
+                    <h3>New Installations</h3>
+                    <p>Expert installation of pipes, fixtures, appliances, and complete plumbing systems.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Sewer & Drain Services</h3>
+                    <p>Clearing blockages, line repairs, and camera inspections to keep your drains flowing.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Emergency Services</h3>
+                    <p>24/7 emergency response for burst pipes, major leaks, and other urgent plumbing issues.</p>
+                    <a href="#" class="service-link">Learn more &rarr;</a>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="testimonials-container">
+                <h2 class="testimonials-title">What Our Customers Say</h2>
+                <p class="testimonials-subtitle">Don't just take our word for it. Here's what our satisfied customers have to say about our services.</p>
+                
+                <div class="testimonials-grid">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="star-rating">
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">"R&M Plumbing & Heating provided exceptional service when we had an emergency leak. They arrived quickly, fixed the issue professionally, and were very courteous throughout."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Sarah Johnson</p>
+                            <p class="author-location">Bergen County, NJ</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="star-rating">
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">"We've been using R&M for all our plumbing needs for years. Their team is always professional, knowledgeable, and they stand behind their work. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Michael Rodriguez</p>
+                            <p class="author-location">Hackensack, NJ</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="star-rating">
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                            <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">"The team at R&M installed our new water heater efficiently and explained everything clearly. Their pricing was fair and the service was top-notch."</p>
+                        <div class="testimonial-author">
+                            <p class="author-name">Lisa Chen</p>
+                            <p class="author-location">Teaneck, NJ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer" style="background: #1a355e; padding: 2rem 0 1rem 0; border-top: 1px solid #bcd2e8; margin-top: 32px;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; color: #ffffff;">
+            <!-- About Us -->
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                <h3 style="margin-top:0;">About Us</h3>
+                <p>
+                    R&amp;M Plumbing &amp; Heating is a family-owned business serving the local community since 1998. 
+                    We pride ourselves on quality workmanship, honest pricing, and reliable service for all your plumbing and heating needs.
+                </p>
+                <p>
+                    Licensed &amp; Insured<br>
+                    License #: PH-123456
+                </p>
+            </div>
+            <!-- Contact Info -->
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                <h3 style="margin-top:0;">Contact</h3>
+                <p>
+                    <strong>Phone:</strong> <a href="tel:2015222834" style="color:#e6f3fb;">201-522-2834</a><br>
+                    <strong>Email:</strong> <a href="mailto:info@rmplumbing.com" style="color:#e6f3fb;">info@rmplumbing.com</a>
+                </p>
+                <p>
+                    <strong>Hours:</strong><br>
+                    Mon-Fri: 8:00am – 6:00pm<br>
+                    Sat-Sun: 9:00am – 2:00pm<br>
+                </p>
+            </div>
+            <!-- Quick Links -->
+            <div style="flex: 1 1 180px; min-width: 180px;">
+                <h3 style="margin-top:0;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#contact" style="color:#e6f3fb; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">Services</a></li>
+                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 32px; color: #ffffff; font-size: 0.95rem;">
+            &copy; 2024 R&amp;M Plumbing &amp; Heating &mdash; All Rights Reserved.<br>
+            Website by R&amp;M Plumbing &amp; Heating
+        </div>
+    </footer>
+</body>
+</html>

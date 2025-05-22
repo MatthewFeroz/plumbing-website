@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | R&amp;M Plumbing &amp; Heating</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+        }
+        .nav-bar > ul {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-bar > ul > li {
+            position: relative;
+        }
+        .nav-bar a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0.5em 0.8em;
+            display: block;
+        }
+        .dropdown-toggle::after {
+            content: " ▼";
+            font-size: 0.7em;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 140px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .dropdown-menu li {
+            width: 100%;
+        }
+        .dropdown-menu a {
+            padding: 0.6em 1em;
+            color: #1a355e;
+            white-space: nowrap;
+        }
+        .nav-bar li:hover > .dropdown-menu,
+        .nav-bar li:focus-within > .dropdown-menu {
+            display: block;
+        }
+        /* Responsive: collapse to hamburger on small screens */
+        @media (max-width: 700px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .nav-bar > ul {
+                flex-direction: column;
+                gap: 0;
+                background: #e6f3fb;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: auto;
+                min-width: 180px;
+                display: none;
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+            .nav-bar.open > ul {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                margin-right: 0.5em;
+                cursor: pointer;
+                color: #1a355e;
+            }
+        }
+        @media (min-width: 701px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        /* Logo styling */
+        .logo img {
+            display: block;
+            max-height: 56px;
+            width: auto;
+        }
+        /* Reduce hero image height */
+        .hero-section {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .hero-image {
+            display: block;
+            width: 100vw;
+            max-width: 100%;
+            height: 260px;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 700px) {
+            .hero-image {
+                height: 140px;
+            }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-top: -4px;
+        }
+        @media (max-width: 768px) {
+            .hero-section,
+            .services-section,
+            .testimonials-section {
+                margin-bottom: 48px;
+                padding: 48px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-section,
+            .services-section,
+            .testimonials-section {
+                margin-bottom: 32px;
+                padding: 32px 16px;
+            }
+        }
+        .contact-section {
+            max-width: 500px;
+            margin: 60px auto 80px auto;
+            padding: 32px 24px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+        .contact-section h1 {
+            margin-bottom: 16px;
+            color: #1a355e;
+        }
+        .contact-section .cta {
+            margin-top: 24px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        // Hamburger menu toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            var navToggle = document.getElementById('nav-toggle');
+            var navBar = document.querySelector('.nav-bar');
+            if (navToggle && navBar) {
+                navToggle.addEventListener('click', function() {
+                    navBar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="logo">
+                <img src="images/logo.png" alt="Company Logo" />
+            </div>
+            <nav class="nav-bar" aria-label="Main navigation">
+                <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li tabindex="0">
+                        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" aria-label="submenu">
+                            <li><a href="#">Plumbing</a></li>
+                            <li><a href="#">Heating</a></li>
+                            <li><a href="#">Water Heaters</a></li>
+                            <li><a href="#">Emergency Repair</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-phone">
+            <a href="tel:2015222834">201-522-2834</a>
+        </div>
+    </header>
+    <main>
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            <p>Have a question or need service? Call us or use the form below!</p>
+            <a href="tel:2015222834" class="cta">Call 201-522-2834</a>
+            <!-- Optional: Add a contact form here in the future -->
+        </section>
+    </main>
+    <footer class="site-footer" style="background: #1a355e; padding: 2rem 0 1rem 0; border-top: 1px solid #bcd2e8; margin-top: 32px;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; color: #ffffff;">
+            <!-- About Us -->
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                <h3 style="margin-top:0;">About Us</h3>
+                <p>
+                    R&amp;M Plumbing &amp; Heating is a family-owned business serving the local community since 1998. 
+                    We pride ourselves on quality workmanship, honest pricing, and reliable service for all your plumbing and heating needs.
+                </p>
+                <p>
+                    Licensed &amp; Insured<br>
+                    License #: PH-123456
+                </p>
+            </div>
+            <!-- Contact Info -->
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                <h3 style="margin-top:0;">Contact</h3>
+                <p>
+                    <strong>Phone:</strong> <a href="tel:2015222834" style="color:#e6f3fb;">201-522-2834</a><br>
+                    <strong>Email:</strong> <a href="mailto:info@rmplumbing.com" style="color:#e6f3fb;">info@rmplumbing.com</a>
+                </p>
+                <p>
+                    <strong>Hours:</strong><br>
+                    Mon-Fri: 8:00am – 6:00pm<br>
+                    Sat-Sun: 9:00am – 2:00pm<br>
+                </p>
+            </div>
+            <!-- Quick Links -->
+            <div style="flex: 1 1 180px; min-width: 180px;">
+                <h3 style="margin-top:0;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="contact.html" style="color:#e6f3fb; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">Services</a></li>
+                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 32px; color: #ffffff; font-size: 0.95rem;">
+            &copy; 2024 R&amp;M Plumbing &amp; Heating &mdash; All Rights Reserved.<br>
+            Website by R&amp;M Plumbing &amp; Heating
+        </div>
+    </footer>
+</body>
+</html>
