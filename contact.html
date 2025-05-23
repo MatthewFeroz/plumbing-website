@@ -1,255 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | R&amp;M Plumbing &amp; Heating</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Dropdown Navigation Styles */
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            position: relative;
-        }
-        .nav-bar > ul {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-bar > ul > li {
-            position: relative;
-        }
-        .nav-bar a {
-            text-decoration: none;
-            color: inherit;
-            padding: 0.5em 0.8em;
-            display: block;
-        }
-        .dropdown-toggle::after {
-            content: " ▼";
-            font-size: 0.7em;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 140px;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 4px;
-            z-index: 10;
-        }
-        .dropdown-menu li {
-            width: 100%;
-        }
-        .dropdown-menu a {
-            padding: 0.6em 1em;
-            color: #1a355e;
-            white-space: nowrap;
-        }
-        .nav-bar li:hover > .dropdown-menu,
-        .nav-bar li:focus-within > .dropdown-menu {
-            display: block;
-        }
-        /* Responsive: collapse to hamburger on small screens */
-        @media (max-width: 700px) {
-            .nav-bar {
-                flex-direction: column;
-                align-items: flex-end;
-            }
-            .nav-bar > ul {
-                flex-direction: column;
-                gap: 0;
-                background: #e6f3fb;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: auto;
-                min-width: 180px;
-                display: none;
-                border-radius: 0 0 8px 8px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            }
-            .nav-bar.open > ul {
-                display: flex;
-            }
-            .nav-toggle {
-                display: block;
-                background: none;
-                border: none;
-                font-size: 2rem;
-                margin-right: 0.5em;
-                cursor: pointer;
-                color: #1a355e;
-            }
-        }
-        @media (min-width: 701px) {
-            .nav-toggle {
-                display: none;
-            }
-        }
-        /* Logo styling */
-        .logo img {
-            display: block;
-            max-height: 56px;
-            width: auto;
-        }
-        /* Reduce hero image height */
-        .hero-section {
-            padding: 0;
-            margin: 0;
-            position: relative;
-        }
-        .hero-image {
-            display: block;
-            width: 100vw;
-            max-width: 100%;
-            height: 260px;
-            border-radius: 0;
-            box-shadow: none;
-            margin: 0;
-            object-fit: cover;
-        }
-        @media (max-width: 700px) {
-            .hero-image {
-                height: 140px;
-            }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            margin-top: -4px;
-        }
-        @media (max-width: 768px) {
-            .hero-section,
-            .services-section,
-            .testimonials-section {
-                margin-bottom: 48px;
-                padding: 48px 16px;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero-section,
-            .services-section,
-            .testimonials-section {
-                margin-bottom: 32px;
-                padding: 32px 16px;
-            }
-        }
-        .contact-section {
-            max-width: 500px;
-            margin: 60px auto 80px auto;
-            padding: 32px 24px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            text-align: center;
-        }
-        .contact-section h1 {
-            margin-bottom: 16px;
-            color: #1a355e;
-        }
-        .contact-section .cta {
-            margin-top: 24px;
-            display: inline-block;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Hamburger menu toggle for mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            var navToggle = document.getElementById('nav-toggle');
-            var navBar = document.querySelector('.nav-bar');
-            if (navToggle && navBar) {
-                navToggle.addEventListener('click', function() {
-                    navBar.classList.toggle('open');
-                });
-            }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a355e",
+              secondary: "#2176c7",
+              accent: "#e6f3fb",
+              light: "#f8fafc",
+            },
+            fontFamily: {
+              sans: ["Segoe UI", "Arial", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-light text-primary font-sans">
+    <!-- Header -->
+    <header
+      class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-md border-b border-gray-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="index.html">
+              <img
+                src="images/logo.png"
+                alt="R&M Plumbing & Heating Logo"
+                class="h-10 sm:h-12 lg:h-14 w-auto rounded-full bg-white p-1 shadow-md"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a
+              href="contact.html"
+              class="text-secondary font-medium px-3 py-2 rounded-md bg-accent"
+            >
+              Contact
+            </a>
+            <div class="relative group">
+              <button
+                class="text-primary hover:text-secondary font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent flex items-center"
+              >
+                Services
+                <svg
+                  class="ml-1 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="contact.html"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Plumbing</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Heating</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Water Heaters</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Emergency Repair</a
+                  >
+                </div>
+              </div>
+            </div>
+            <a
+              href="about.html"
+              class="text-primary hover:text-secondary font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent"
+            >
+              About
+            </a>
+          </nav>
+
+          <!-- Phone Number (Desktop) -->
+          <div class="hidden lg:block">
+            <a
+              href="tel:2015222058"
+              class="bg-secondary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              201-522-2058
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="lg:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-primary hover:text-secondary p-2 rounded-md transition-colors"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="lg:hidden hidden pb-4">
+          <div class="space-y-2">
+            <a
+              href="contact.html"
+              class="block text-secondary font-medium py-2 px-3 rounded-md bg-accent"
+            >
+              Contact
+            </a>
+            <div class="space-y-1">
+              <button
+                id="mobile-services-toggle"
+                class="w-full text-left text-primary hover:text-secondary font-medium py-2 px-3 rounded-md hover:bg-accent transition-colors flex items-center justify-between"
+              >
+                Services
+                <svg
+                  id="mobile-services-icon"
+                  class="h-4 w-4 transform transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="mobile-services-menu" class="hidden pl-4 space-y-1">
+                <a
+                  href="contact.html"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Plumbing</a
+                >
+                <a
+                  href="contact.html"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Heating</a
+                >
+                <a
+                  href="contact.html"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Water Heaters</a
+                >
+                <a
+                  href="contact.html"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Emergency Repair</a
+                >
+              </div>
+            </div>
+            <a
+              href="about.html"
+              class="block text-primary hover:text-secondary font-medium py-2 px-3 rounded-md hover:bg-accent transition-colors"
+            >
+              About
+            </a>
+            <div class="pt-2">
+              <a
+                href="tel:2015222058"
+                class="block w-full text-center bg-secondary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md"
+              >
+                Call 201-522-2058
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Contact Section -->
+      <section class="py-12 lg:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12 text-center">
+            <h1
+              class="text-primary text-3xl lg:text-4xl font-bold mb-6 leading-tight"
+            >
+              Contact Us
+            </h1>
+            <p class="text-gray-600 text-lg lg:text-xl mb-8 leading-relaxed">
+              Have a question or need service? We're here to help! Call us
+              directly or use the information below to get in touch.
+            </p>
+
+            <!-- Contact Methods -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 text-left"
+            >
+              <!-- Phone -->
+              <div
+                class="bg-accent/50 rounded-lg p-6 border border-secondary/20"
+              >
+                <div class="flex items-center mb-3">
+                  <svg
+                    class="w-6 h-6 text-secondary mr-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  <h3 class="text-xl font-semibold text-primary">Phone</h3>
+                </div>
+                <p class="text-gray-700 mb-2">Call or text us for immediate assistance</p>
+                <a
+                  href="tel:2015222058"
+                  class="text-secondary hover:text-blue-700 font-semibold text-lg transition-colors"
+                >
+                  201-522-2058
+                </a>
+                <p class="text-gray-600 text-sm mt-1">Available for calls and texts</p>
+              </div>
+
+              <!-- Email -->
+              <div
+                class="bg-accent/50 rounded-lg p-6 border border-secondary/20"
+              >
+                <div class="flex items-center mb-3">
+                  <svg
+                    class="w-6 h-6 text-secondary mr-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <h3 class="text-xl font-semibold text-primary">Email</h3>
+                </div>
+                <p class="text-gray-700 mb-2">Send us a message</p>
+                <a
+                  href="mailto:info@rmplumbing.com"
+                  class="text-secondary hover:text-blue-700 font-semibold transition-colors"
+                >
+                  info@rmplumbing.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="bg-gray-50 rounded-lg p-6 mb-8 text-left">
+              <h3 class="text-xl font-semibold text-primary mb-4 text-center">
+                Business Hours
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                <div>
+                  <p class="font-semibold text-primary">Monday - Friday</p>
+                  <p class="text-gray-700">7:00 AM - 6:00 PM</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-primary">Saturday - Sunday</p>
+                  <p class="text-gray-700">7:00 AM - 2:00 PM</p>
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <p class="text-sm text-gray-600">
+                  Emergency services available 24/7
+                </p>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="space-y-4">
+              <a
+                href="tel:2015222058"
+                class="inline-block bg-secondary hover:bg-blue-700 text-white font-bold text-xl px-8 py-4 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Call or Text Now: 201-522-2058
+              </a>
+              <p class="text-gray-600">
+                Licensed & Insured • Serving Bergen County & Surrounding Areas
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+        >
+          <!-- About Us -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">About Us</h3>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+              R&amp;M Plumbing &amp; Heating is a family-owned business serving
+              the local community since 1998. We pride ourselves on quality
+              workmanship, honest pricing, and reliable service for all your
+              plumbing and heating needs.
+            </p>
+            <p class="text-gray-300">
+              Licensed &amp; Insured<br />
+              License #: PH-123456
+            </p>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contact</h3>
+            <div class="space-y-2 text-gray-300">
+              <p>
+                <strong class="text-white">Phone:</strong>
+                <a
+                  href="tel:2015222058"
+                  class="text-accent hover:text-white transition-colors"
+                  >201-522-2058</a
+                >
+              </p>
+              <p>
+                <strong class="text-white">Email:</strong>
+                <a
+                  href="mailto:info@rmplumbing.com"
+                  class="text-accent hover:text-white transition-colors"
+                  >info@rmplumbing.com</a
+                >
+              </p>
+            </div>
+            <div class="mt-4 text-gray-300">
+              <p class="font-semibold text-white mb-2">Hours:</p>
+              <p>Mon-Fri: 7:00am – 6:00pm</p>
+              <p>Sat-Sun: 7:00am – 2:00pm</p>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-accent hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-accent hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-accent hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300"
+        >
+          <p>
+            &copy; 2024 R&amp;M Plumbing &amp; Heating &mdash; All Rights
+            Reserved.
+          </p>
+          <p class="mt-1">Website by R&amp;M Plumbing &amp; Heating</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
+        });
+
+      // Mobile services dropdown
+      document
+        .getElementById("mobile-services-toggle")
+        .addEventListener("click", function () {
+          const servicesMenu = document.getElementById("mobile-services-menu");
+          const icon = document.getElementById("mobile-services-icon");
+          servicesMenu.classList.toggle("hidden");
+          icon.classList.toggle("rotate-180");
         });
     </script>
-</head>
-<body>
-    <header class="site-header">
-        <div class="header-main">
-            <div class="logo">
-                <img src="images/logo.png" alt="Company Logo" />
-            </div>
-            <nav class="nav-bar" aria-label="Main navigation">
-                <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
-                <ul>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li tabindex="0">
-                        <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Services</a>
-                        <ul class="dropdown-menu" aria-label="submenu">
-                            <li><a href="#">Plumbing</a></li>
-                            <li><a href="#">Heating</a></li>
-                            <li><a href="#">Water Heaters</a></li>
-                            <li><a href="#">Emergency Repair</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="header-phone">
-            <a href="tel:2015222834">201-522-2834</a>
-        </div>
-    </header>
-    <main>
-        <section class="contact-section">
-            <h1>Contact Us</h1>
-            <p>Have a question or need service? Call us or use the form below!</p>
-            <a href="tel:2015222834" class="cta">Call 201-522-2834</a>
-            <!-- Optional: Add a contact form here in the future -->
-        </section>
-    </main>
-    <footer class="site-footer" style="background: #1a355e; padding: 2rem 0 1rem 0; border-top: 1px solid #bcd2e8; margin-top: 32px;">
-        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; color: #ffffff;">
-            <!-- About Us -->
-            <div style="flex: 1 1 220px; min-width: 220px;">
-                <h3 style="margin-top:0;">About Us</h3>
-                <p>
-                    R&amp;M Plumbing &amp; Heating is a family-owned business serving the local community since 1998. 
-                    We pride ourselves on quality workmanship, honest pricing, and reliable service for all your plumbing and heating needs.
-                </p>
-                <p>
-                    Licensed &amp; Insured<br>
-                    License #: PH-123456
-                </p>
-            </div>
-            <!-- Contact Info -->
-            <div style="flex: 1 1 220px; min-width: 220px;">
-                <h3 style="margin-top:0;">Contact</h3>
-                <p>
-                    <strong>Phone:</strong> <a href="tel:2015222834" style="color:#e6f3fb;">201-522-2834</a><br>
-                    <strong>Email:</strong> <a href="mailto:info@rmplumbing.com" style="color:#e6f3fb;">info@rmplumbing.com</a>
-                </p>
-                <p>
-                    <strong>Hours:</strong><br>
-                    Mon-Fri: 8:00am – 6:00pm<br>
-                    Sat-Sun: 9:00am – 2:00pm<br>
-                </p>
-            </div>
-            <!-- Quick Links -->
-            <div style="flex: 1 1 180px; min-width: 180px;">
-                <h3 style="margin-top:0;">Quick Links</h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li><a href="contact.html" style="color:#e6f3fb; text-decoration: none;">Contact Us</a></li>
-                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">Services</a></li>
-                    <li><a href="#" style="color:#e6f3fb; text-decoration: none;">About</a></li>
-                </ul>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 32px; color: #ffffff; font-size: 0.95rem;">
-            &copy; 2024 R&amp;M Plumbing &amp; Heating &mdash; All Rights Reserved.<br>
-            Website by R&amp;M Plumbing &amp; Heating
-        </div>
-    </footer>
-</body>
+  </body>
 </html>

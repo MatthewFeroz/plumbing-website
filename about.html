@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | R&amp;M Plumbing &amp; Heating</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a355e",
+              secondary: "#2176c7",
+              accent: "#e6f3fb",
+              light: "#f8fafc",
+            },
+            fontFamily: {
+              sans: ["Segoe UI", "Arial", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-light text-primary font-sans">
+    <!-- Header -->
+    <header
+      class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-md border-b border-gray-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="index.html">
+              <img
+                src="images/logo.png"
+                alt="R&M Plumbing & Heating Logo"
+                class="h-10 sm:h-12 lg:h-14 w-auto rounded-full bg-white p-1 shadow-md"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a
+              href="contact.html"
+              class="text-primary hover:text-secondary font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent"
+            >
+              Contact
+            </a>
+            <div class="relative group">
+              <button
+                class="text-primary hover:text-secondary font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent flex items-center"
+              >
+                Services
+                <svg
+                  class="ml-1 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                class="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+              >
+                <div class="py-1">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Plumbing</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Heating</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Water Heaters</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-primary hover:bg-accent hover:text-secondary transition-colors"
+                    >Emergency Repair</a
+                  >
+                </div>
+              </div>
+            </div>
+            <a
+              href="about.html"
+              class="text-secondary font-medium px-3 py-2 rounded-md bg-accent"
+            >
+              About
+            </a>
+            <a
+              href="index.html"
+              class="text-primary hover:text-secondary font-medium transition-colors duration-200 px-3 py-2 rounded-md hover:bg-accent"
+            >
+              Home
+            </a>
+          </nav>
+
+          <!-- Phone Number (Desktop) -->
+          <div class="hidden lg:block">
+            <a
+              href="tel:2015222834"
+              class="bg-secondary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              201-522-2834
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="lg:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-primary hover:text-secondary p-2 rounded-md transition-colors"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="lg:hidden hidden pb-4">
+          <div class="space-y-2">
+            <a
+              href="contact.html"
+              class="block text-primary hover:text-secondary font-medium py-2 px-3 rounded-md hover:bg-accent transition-colors"
+            >
+              Contact
+            </a>
+            <div class="space-y-1">
+              <button
+                id="mobile-services-toggle"
+                class="w-full text-left text-primary hover:text-secondary font-medium py-2 px-3 rounded-md hover:bg-accent transition-colors flex items-center justify-between"
+              >
+                Services
+                <svg
+                  id="mobile-services-icon"
+                  class="h-4 w-4 transform transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="mobile-services-menu" class="hidden pl-4 space-y-1">
+                <a
+                  href="#"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Plumbing</a
+                >
+                <a
+                  href="#"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Heating</a
+                >
+                <a
+                  href="#"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Water Heaters</a
+                >
+                <a
+                  href="#"
+                  class="block text-primary hover:text-secondary py-2 px-3 rounded-md hover:bg-accent transition-colors"
+                  >Emergency Repair</a
+                >
+              </div>
+            </div>
+            <a
+              href="about.html"
+              class="block text-secondary font-medium py-2 px-3 rounded-md bg-accent"
+            >
+              About
+            </a>
+            <a
+              href="index.html"
+              class="block text-primary hover:text-secondary font-medium py-2 px-3 rounded-md hover:bg-accent transition-colors"
+            >
+              Home
+            </a>
+            <div class="pt-2">
+              <a
+                href="tel:2015222834"
+                class="block w-full text-center bg-secondary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md"
+              >
+                Call 201-522-2834
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="py-12 lg:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h1
+              class="text-primary text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+            >
+              About R&amp;M Plumbing &amp; Heating
+            </h1>
+            <p class="text-gray-600 text-xl lg:text-2xl max-w-3xl mx-auto">
+              Proudly serving Bergen County, NJ since 1998
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main About Content -->
+      <section class="py-12 lg:py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Service Area & History -->
+          <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+            <div class="max-w-4xl mx-auto">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Service Area -->
+                <div>
+                  <h2
+                    class="text-primary text-3xl lg:text-4xl font-bold mb-6"
+                  >
+                    Our Service Area
+                  </h2>
+                  <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p class="text-lg">
+                      R&amp;M Plumbing &amp; Heating is proud to serve Bergen
+                      County, New Jersey and the surrounding areas. Our local
+                      presence means we understand the unique needs of our
+                      community and can provide fast, reliable service when you
+                      need it most.
+                    </p>
+                    <div>
+                      <h3 class="text-primary text-xl font-semibold mb-3">
+                        Areas We Serve:
+                      </h3>
+                      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Hackensack
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Teaneck
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Englewood
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Fort Lee
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Paramus
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Ridgewood
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          Bergenfield
+                        </li>
+                        <li class="flex items-center">
+                          <svg
+                            class="w-4 h-4 text-secondary mr-2 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          & Surrounding Areas
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company History -->
+                <div>
+                  <h2
+                    class="text-primary text-3xl lg:text-4xl font-bold mb-6"
+                  >
+                    Our History
+                  </h2>
+                  <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p class="text-lg">
+                      Founded in 1998, R&amp;M Plumbing &amp; Heating has been
+                      a trusted name in Bergen County for over 25 years. What
+                      started as a small family business has grown into one of
+                      the area's most reliable plumbing and heating companies.
+                    </p>
+                    <p>
+                      We built our reputation on quality workmanship, honest
+                      pricing, and treating every customer like family. Our
+                      commitment to excellence has earned us thousands of
+                      satisfied customers throughout Bergen County and beyond.
+                    </p>
+                    <p>
+                      As a locally owned and operated business, we understand
+                      the unique needs of our community. Whether it's an
+                      emergency repair or a planned installation, we're here to
+                      serve our neighbors with the same dedication and care
+                      we've provided for over two decades.
+                    </p>
+                    <div
+                      class="bg-accent/50 rounded-lg p-4 border border-secondary/20 mt-6"
+                    >
+                      <p class="text-primary font-semibold text-center">
+                        Licensed & Insured • Available 24/7 for Emergencies
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="py-12 lg:py-16 bg-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-white text-3xl lg:text-4xl font-bold mb-6">
+            Ready to Experience the R&amp;M Difference?
+          </h2>
+          <p class="text-blue-100 text-xl mb-8 leading-relaxed">
+            Join thousands of satisfied customers who trust us with their
+            plumbing and heating needs.
+          </p>
+          <a
+            href="tel:2015222834"
+            class="inline-block bg-white text-secondary hover:bg-gray-100 font-bold text-xl px-8 py-4 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Call Us Today: 201-522-2834
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+        >
+          <!-- About Us -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">About Us</h3>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+              R&amp;M Plumbing &amp; Heating is a family-owned business serving
+              the local community since 1998. We pride ourselves on quality
+              workmanship, honest pricing, and reliable service for all your
+              plumbing and heating needs.
+            </p>
+            <p class="text-gray-300">
+              Licensed &amp; Insured<br />
+              License #: PH-123456
+            </p>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contact</h3>
+            <div class="space-y-2 text-gray-300">
+              <p>
+                <strong class="text-white">Phone:</strong>
+                <a
+                  href="tel:2015222834"
+                  class="text-accent hover:text-white transition-colors"
+                  >201-522-2834</a
+                >
+              </p>
+              <p>
+                <strong class="text-white">Email:</strong>
+                <a
+                  href="mailto:info@rmplumbing.com"
+                  class="text-accent hover:text-white transition-colors"
+                  >info@rmplumbing.com</a
+                >
+              </p>
+            </div>
+            <div class="mt-4 text-gray-300">
+              <p class="font-semibold text-white mb-2">Hours:</p>
+              <p>Mon-Fri: 8:00am – 6:00pm</p>
+              <p>Sat-Sun: 9:00am – 2:00pm</p>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-accent hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html"
+                  class="text-accent hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-accent hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300"
+        >
+          <p>
+            &copy; 2024 R&amp;M Plumbing &amp; Heating &mdash; All Rights
+            Reserved.
+          </p>
+          <p class="mt-1">Website by R&amp;M Plumbing &amp; Heating</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
+        });
+
+      // Mobile services dropdown
+      document
+        .getElementById("mobile-services-toggle")
+        .addEventListener("click", function () {
+          const servicesMenu = document.getElementById("mobile-services-menu");
+          const icon = document.getElementById("mobile-services-icon");
+          servicesMenu.classList.toggle("hidden");
+          icon.classList.toggle("rotate-180");
+        });
+    </script>
+  </body>
+</html>
