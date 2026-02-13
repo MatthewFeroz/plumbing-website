@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rmplumbingheatingnj.com/sitemap.xml

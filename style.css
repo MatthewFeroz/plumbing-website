@@ -5,6 +5,27 @@ body {
     color: #1a355e;
 }
 
+/* Mobile call bar bottom padding */
+@media (max-width: 1023px) {
+    body {
+        padding-bottom: 4rem;
+    }
+}
+
+/* Shadow pointing upward for mobile call bar */
+.shadow-top {
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle pulse glow for desktop phone button */
+@keyframes pulse-subtle {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+}
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+}
+
 /* Ensure header stays top-left and doesn't center on wide screens */
 .site-header {
     background-color: rgba(255, 255, 255, 0.95);
