@@ -46,6 +46,7 @@
         position: absolute;
         inset: 0;
         background-image: url("images/hero.jpg");
+        background-image: image-set(url("images/hero.webp") type("image/webp"), url("images/hero.jpg") type("image/jpeg"));
         background-size: cover;
         background-position: center 30%;
         background-repeat: no-repeat;
@@ -126,7 +127,10 @@
           <!-- Logo -->
           <div class="flex-1 flex-shrink-0">
             <a href="index.html">
-              <img src="images/logo.png" alt="R&M Plumbing & Heating Logo" class="h-10 sm:h-12 lg:h-14 w-auto" />
+              <picture>
+                <source srcset="images/logo-nav.webp" type="image/webp">
+                <img src="images/logo-nav.png" alt="R&M Plumbing & Heating Logo" width="168" height="168" class="h-10 sm:h-12 lg:h-14 w-auto" />
+              </picture>
             </a>
           </div>
 
